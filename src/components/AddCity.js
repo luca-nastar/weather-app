@@ -15,6 +15,12 @@ const AddCity = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (typeof city !== 'string') {
+      setState({ city: '' });
+      return alert('Debe ingresar una ciudad valida');
+    }
+
     try {
       const { data } = await getCoordinatesAPI(city);
 
