@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {
+  AppBar,
+  createTheme,
+  CssBaseline,
+  ThemeProvider,
+  Toolbar,
+  Typography,
+} from '@mui/material';
 
-function App() {
+import CityPage from './pages/CityPage';
+import Appbar from './components/Appbar';
+
+const App = () => {
+  const theme = createTheme({
+    palette: {
+      mode: 'dark',
+    },
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+
+      <Appbar />
+      <CityPage />
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
